@@ -45,7 +45,7 @@ def jalan(z):
 		sys.stdout.flush()
 		time.sleep(00000.1)
 
-
+#Dev Arbab-Memon
 ##### LOGO #####
 logo = """ -----------------------------•◈•
 (  __)\\ ____--------------_------------•◈•
@@ -249,8 +249,7 @@ def super():
 	print "\x1b[1;96m[\x1b[1;92m2\x1b[1;96m]\x1b[1;93m Enter From Any Public ID"
         print "\x1b[1;96m[\x1b[1;92m3\x1b[1;96m]\x1b[1;93m Enter From Gmail(Activated)"
         print "\x1b[1;96m[\x1b[1;92m4\x1b[1;96m]\x1b[1;93m Enter From Yahoo(proceed)"
-        print "\x1b[1;96m[\x1b[1;92m5\x1b[1;96m]\x1b[1;93m Enter From Target Account(Soon)"
-	print "\x1b[1;96m[\x1b[1;92m6\x1b[1;96m]\x1b[1;93m Enter From File"
+        print "\x1b[1;96m[\x1b[1;92m5\x1b[1;96m]\x1b[1;93m Enter From File"
 	print "\x1b[1;96m[\x1b[1;91m0\x1b[1;96m]\x1b[1;91m Back"
 	pilih_super()
 
@@ -287,6 +286,42 @@ def pilih_super():
 		for i in z['data']:
 			id.append(i['id'])
 	elif peak =="3":
+		os.system('clear')
+		print logo
+		print 42*"\033[1;96m="
+		idt = raw_input("\033[1;96m[+] \033[1;93mEnter Gmail \033[1;91m: \033[1;97m")
+		try:
+			jok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+toket)
+			op = json.loads(jok.text)
+			print"\033[1;96m[\033[1;97m✓\033[1;96m] \033[1;93mName\033[1;91m :\033[1;97m "+op["name"]
+		except KeyError:
+			print"\033[1;96m[!] \x1b[1;91mID Not Found!"
+			raw_input("\n\033[1;96m[\033[1;97mBack\033[1;96m]")
+			super()
+		jalan('\033[1;96m[✺] \033[1;93mGetting Gmail In Number \033[1;97m...')
+		r = requests.get("https://graph.facebook.com/"+idt+"/friends?access_token="+toket)
+		z = json.loads(r.text)
+		for i in z['data']:
+			id.append(i['id'])
+	elif peak =="4":
+		os.system('clear')
+		print logo
+		print 42*"\033[1;96m="
+		idt = raw_input("\033[1;96m[+] \033[1;93mEnter Yahoo \033[1;91m: \033[1;97m")
+		try:
+			jok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+toket)
+			op = json.loads(jok.text)
+			print"\033[1;96m[\033[1;97m✓\033[1;96m] \033[1;93mName\033[1;91m :\033[1;97m "+op["name"]
+		except KeyError:
+			print"\033[1;96m[!] \x1b[1;91mID Not Found!"
+			raw_input("\n\033[1;96m[\033[1;97mBack\033[1;96m]")
+			super()
+		jalan('\033[1;96m[✺] \033[1;93mGetting Yahoo in Numbers \033[1;97m...')
+		r = requests.get("https://graph.facebook.com/"+idt+"/friends?access_token="+toket)
+		z = json.loads(r.text)
+		for i in z['data']:
+			id.append(i['id'])
+	elif peak =="5":
 		os.system('clear')
 		print logo
 		print 42*"\033[1;96m="
